@@ -10,7 +10,7 @@ function ListingPage() {
 
   useEffect(() => {
     dispatch(fetchChefs());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
