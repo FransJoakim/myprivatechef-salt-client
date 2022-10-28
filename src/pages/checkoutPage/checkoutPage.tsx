@@ -15,26 +15,6 @@ function CheckoutPage() {
   const [display, setDisplay] = useState(true);
 
   const shoppingList: Ingre[] = [];
-  let ingredientsSummary: Ingre[] = [];
-
-  const convertUnits = () => {
-    ingredientsSummary.forEach((el) => {
-      switch (el.unit) {
-        case "gr":
-          if (el.quantity >= 1000) {
-            el.quantity = el.quantity / 1000;
-            el.unit = "kg";
-          }
-          break;
-        case "ml":
-          if (el.quantity >= 1000) {
-            el.quantity = el.quantity / 1000;
-            el.unit = "Liter";
-          }
-          break;
-      }
-    });
-  };
 
   useEffect(() => {
     cart.dishes.forEach((el) => {
@@ -46,6 +26,27 @@ function CheckoutPage() {
         });
       });
     });
+
+    let ingredientsSummary: Ingre[] = [];
+
+    const convertUnits = () => {
+      ingredientsSummary.forEach((el) => {
+        switch (el.unit) {
+          case "gr":
+            if (el.quantity >= 1000) {
+              el.quantity = el.quantity / 1000;
+              el.unit = "kg";
+            }
+            break;
+          case "ml":
+            if (el.quantity >= 1000) {
+              el.quantity = el.quantity / 1000;
+              el.unit = "Liter";
+            }
+            break;
+        }
+      });
+    };
 
     ingredientsSummary = shoppingList.reduce(
       (ingredients: Ingre[], currentIngre) => {
