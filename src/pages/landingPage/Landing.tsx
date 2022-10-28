@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Hero from '../../components/hero/Hero'
+import Hero from "../../components/hero/Hero";
 function LandingPage() {
-
   return (
     <div className="landingPage">
-    
-        
-        <Hero/> 
-     
+      <Hero />
     </div>
   );
 }
