@@ -14,9 +14,8 @@ function CheckoutPage() {
   const [displaySn, setDisplaySn] = useState(false);
   const [display, setDisplay] = useState(true);
 
-  const shoppingList: Ingre[] = [];
-
   useEffect(() => {
+    const shoppingList: Ingre[] = [];
     cart.dishes.forEach((el) => {
       el.ingredients.forEach((e) => {
         shoppingList.push({
@@ -69,7 +68,7 @@ function CheckoutPage() {
 
     convertUnits();
     dispatch(updateShoppingList(ingredientsSummary));
-  }, []);
+  }, [cart.dishes, dispatch]);
 
   console.log("check page", cart);
 
